@@ -14,7 +14,7 @@ var app = new Vue({
                 this.processForm();
             } else {
                 document.getElementById('error').className = 'block text-black mb-6 tracking-widest'
-                document.getElementById('error').innerHTML = 'Deposit code required';
+                document.getElementById('error').innerHTML = 'Vault number required';
             }
 
         },
