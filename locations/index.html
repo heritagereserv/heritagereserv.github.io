@@ -85,7 +85,42 @@ window.addEventListener('LazyLoad::Initialized', function (e) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
- gtag('config', 'UA-84533233-1');</script> <script src="../wp-content/cache/min/1/299111092c6a568f146a5c3ff977a306.js" data-minify="1" defer></script></body>
+ gtag('config', 'UA-84533233-1');</script> <script src="../wp-content/cache/min/1/299111092c6a568f146a5c3ff977a306.js" data-minify="1" defer></script>
+<script id="dropdowns-only-fix">
+(function () {
+  function initDropdowns() {
+    var menu = document.getElementById('navbar-primary');
+    if (!menu) return;
+
+    var links = menu.querySelectorAll('a[data-toggle="dropdown"]');
+
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var parent = this.parentNode;
+        var siblings = parent.parentNode.children;
+
+        for (var j = 0; j < siblings.length; j++) {
+          if (siblings[j] !== parent && siblings[j].classList) {
+            siblings[j].classList.remove('open');
+          }
+        }
+
+        parent.classList.toggle('open');
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDropdowns);
+  } else {
+    initDropdowns();
+  }
+})();
+</script>
+</body>
 <!-- Mirrored from www.ultra-vault.com/locations/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2026 00:25:57 GMT -->
 </html>
 <!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1787852512 -->
