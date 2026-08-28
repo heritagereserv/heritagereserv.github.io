@@ -13,7 +13,7 @@ var app = new Vue({
             if(this.validateForm()) {
                 this.processForm();
             } else {
-                document.getElementById('error').className = 'block text-red-700 mb-6 tracking-widest'
+                document.getElementById('error').className = 'block text-black mb-6 tracking-widest'
                 document.getElementById('error').innerHTML = 'Deposit code required';
             }
 
@@ -39,7 +39,7 @@ var app = new Vue({
 
                     if(!res.data.success) {
                         this.errorMessage = res.data.message
-                        document.getElementById('error').className = 'block text-red-700 mb-6 tracking-widest'
+                        document.getElementById('error').className = 'block text-black mb-6 tracking-widest'
                         document.getElementById('error').innerHTML = this.errorMessage
 
                     } 
@@ -61,7 +61,7 @@ var app = new Vue({
 
                         // document.getElementById('error').className = 'hidden'
                     
-                        document.getElementById('error').className = 'block text-green-700 mb-6 tracking-widest'
+                        document.getElementById('error').className = 'block text-black mb-6 tracking-widest'
                         document.getElementById('error').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-check inline-block pr-1"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 12l2 2l4 -4" /><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /></svg> Redirecting in 5 seconds...'
 
                         setTimeout(function () {

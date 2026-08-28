@@ -16,22 +16,34 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+<!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        .default-font {
+            font-family: "Space Grotesk", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    </style>
 </head>
-<body style="font-family: 'Elms Sans', sans-serif;">
-    <div class="px-8 sm:px-4 md:px-0 lg:px-0" id="app">
+<body style="background-color: #2B2319;" class="default-font">
+    <div class="" id="app">
 
         <section id="login-form">
             <div class="w-[400px] mx-auto">
                 <div class="my-32 tracking-widest">
-                    <a href="../index.html">Back to website</a>
+                    <a href="../index.html" class="text-white">Back to website</a>
                 </div>
-                <div class="border border-gray-300 rounded-md p-14 shadow">
-                    <div class="mb-6 hidden" id="error"></div>
+                <div class="border border-gray-300 rounded-xl p-14 shadow" style="background-color: #AC9F89">
+                    <div class="mb-6 hidden text-black" id="error"></div>
                     
                     <div class="hidden" id="loading">
                         <div class="flex items-center gap-2">
-                            <span>Checking deposit code...</span>
+                            <span class="text-black">Checking deposit code...</span>
                         </div>
                     </div>
 
@@ -39,17 +51,17 @@
                     
                     <form v-on:submit.prevent="submitForm()">
                         <div>
-                            <label class="tracking-widest text-sm text-gray-700 block" for="vault">Deposit code</label>
+                            <label class="tracking-widest text-sm text-gray-700 block text-white" for="vault">Reference Code</label>
                             <input class="mt-3 bg-gray-200 px-6 py-4 text-gray-700 focus:outline-none w-full" v-model="vaultNumber" placeholder="Enter code" autofocus>
                         </div>
                         <div>
                         <!-- <input class="uppercase tracking-widest bg-pink-600 px-6 py-4 text-gray-100 hover:bg-pink-700 w-full" type="submit" name="submit" value="Check Valuables"> -->
-                        <button class="flex items-center gap-3 uppercase tracking-widest bg-pink-600 px-6 py-4 text-gray-100 hover:bg-pink-700 w-full" type="submit">
+                        <button class="flex items-center gap-3 uppercase tracking-widest bg-black px-6 py-4 text-gray-100 hover:bg-gray-900 w-full" type="submit">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock-password"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /><path d="M15 16h.01" /><path d="M12.01 16h.01" /><path d="M9.02 16h.01" /></svg>
                             </span>
-                            <span>
-                                Check Deposit
+                            <span class="text-white" >
+                                Check Your Assets
                             </span>
                         </button>
                         </div>
@@ -60,56 +72,57 @@
 
         <section class="hidden" id="result-container">
             <div>
-                <header class="border-b border-gray-200 py-2 mb-12">
+                <header class="px-4 py-10 sm:py-3 mb-14 bg-black text-white" style="background-color: black; color: white;">
                     <div class="container mx-auto flex justify-between items-center">
                         <div>
-                            <h1 class="flag" style="font-size: 25px">
-                            <a href="https://royalstoragevault.com">{{ profile.website_name }}</a>
+                            <!-- <h1 class="flag" style="font-size: 25px">
+                            <a href="https://royalstoragevault.com">{{ profile.website_name }}s</a>
                             </h1>
-                            <p class="flag" style="font-size: 15px">Secure. Reliable. Trusted Worldwide</p>
+                            <p class="flag" style="font-size: 15px">Secure. Reliable. Trusted Worldwide</p> -->
+                            <img src="logo-invert.svg">
                         </div>
                         <div class="flex items-center gap-3">
-                            <a href="">
+                            <a  href="">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" /><path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" /><path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" /></svg>
                                 </span>
                             </a>
-                            <a class="bg-blue-500 text-white rounded px-2 py-1.5 text-sm hover:bg-blue-700" href="../index.html">Logout</a>
+                            <a class="bg-blue-500 text-white rounded px-2 py-1.5 text-sm hover:bg-blue-700" style="background-color: #2A2319;" href="../index.html">Logout</a>
                         </div>
                     </div>
                 </header>
 
-                <section class="container mx-auto mt-12 mb-14">
+                <section class="container mx-auto mt-12 mb-14 text-white px-8 sm:px-4 md:px-0 lg:px-0">
                     <div style="margin-bottom: 20px;">
-                        <h1 class="font-bold">Deposit No: {{ vault.reference }}</h1>
+                        <h1 class=""><span class="font-bold">Reference Code:</span> <span class="font-light">{{ vault.reference }}</span></h1>
                         <div class="barcode">
                             <img src="barcode.png" alt="" width="300">
                         </div>
                     </div>
 
-                    <div class="border border-gray-300">
-                        <div class="border-b border-gray-300 py-1.5 px-4">
+                    <div class="border border-gray-300 mb-10 rounded-xl">
+                        <div class="border-b border-gray-300 py-2 px-4 bg-black rounded-t-xl">
                             <h1 class="font-bold">Package Information</h1>
                         </div>
-                        <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="border-b border-gray-300 px-4 py-4" style="background-color: #AC9F89; color: black;">
                             <h1 class="font-bold">Description</h1>
-                            <div>{{ vault.description }}</div>
+                            <div class="font-light">{{ vault.description }}</div>
                         </div>
-                        <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="border-b border-gray-300 px-4 py-4" style="background-color: #AC9F89; color: black;">
                             <h1 class="font-bold">Assay/Certification Number</h1>
-                            <div>{{ vault.assay_certificate_number }}</div>
+                            <div class="font-light">{{ vault.assay_certificate_number }}</div>
                         </div>
-                        <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="border-b border-gray-300 px-4 py-4 rounded-b-xl" style="background-color: #AC9F89; color: black;">
                             <h1 class="font-bold">Purity/Fineness</h1>
-                            <div>#{{ vault.purity_fineness }}</div>
+                            <div class="font-light">#{{ vault.purity_fineness }}</div>
                         </div>
                     </div>
 
-                    <div class="border border-gray-300 mb-8">
-                        <div class="border-b border-gray-300 px-4 py-1.5">
+                    <div class="border border-gray-300 mb-10 rounded-xl">
+                        <div class="border-b border-gray-300 px-4 py-2 rounded-t-xl" style="background-color: black; color: white;">
                             <h1 class="font-bold">Depositor Details</h1>
                         </div>
-                        <div class="px-4 py-1.5">
+                        <div class="p-4 font-light rounded-b-xl" style="background-color: #AC9F89; color: black;">
                            {{ vault.depositor }} <br>
                             {{ address.street }}, <br> 
                             {{ address.city }}, {{ address.state }} {{ address.zip_code }}. <br>
@@ -117,90 +130,90 @@
                         </div>
                     </div>
 
-                    <div class="sm:flex mb-12 border border-gray-300">
-                        <div class="w-full sm:w-[30%]">
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                    <div class="sm:flex mb-12 border border-gray-300 rounded-xl">
+                        <div class="w-full sm:w-[30%]" style="background-color: #AC9F89; color: black;">
+                            <div class="border-b border-gray-300 px-4 py-4 rounded-tl-xl">
                                 <h1 class="font-bold">Country</h1>
-                                <div>{{ vault.country_of_deposit }}</div>
+                                <div class="font-light">{{ vault.country_of_deposit }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Purpose of Deposit</h1>
-                                <div>{{ vault.purpose_of_deposit }}</div>
+                                <div class="font-light">{{ vault.purpose_of_deposit }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Transaction Code</h1>
-                                <div>#{{ vault.reference }}</div>
+                                <div class="font-light">#{{ vault.reference }}</div>
                             </div>
-                            <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
+                            <div class="border-b border-gray-300 sm:border-none px-4 py-4 rounded-bl-xl">
                                 <h1 class="font-bold">Next of Kin</h1>
-                                <div>
+                                <div class="font-light">
                                     <span v-if="vault.next_of_kin != null">{{ vault.next_of_kin }} </span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="w-full sm:w-[30%]">
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="w-full sm:w-[30%]" style="background-color: #AC9F89; color: black;">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Quantity</h1>
-                                <div>{{ vault.quantity }}</div>
+                                <div class="font-light">{{ vault.quantity }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Weight</h1>
-                                <div>{{ vault.weight }}</div>
+                                <div class="font-light">{{ vault.weight }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Product</h1>
-                                <div>{{ vault.item }}</div>
+                                <div class="font-light">{{ vault.item }}</div>
                             </div>
-                            <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
+                            <div class="border-b border-gray-300 sm:border-none px-4 py-4">
                                 <h1 class="font-bold">Total Value</h1>
-                                <div>{{ vault.current_value }}</div>
+                                <div class="font-light">{{ vault.current_value }}</div>
                             </div>
                         </div>
 
-                        <div class="w-full sm:w-[40%]">
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="w-full sm:w-[40%]" style="background-color: #AC9F89; color: black;">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Valuation Date</h1>
-                                <div>{{ vault.valuation_date }}</div>
+                                <div class="font-light">{{ vault.valuation_date }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Fee Per Month</h1>
-                                <div>{{ vault.fee_per_month }}</div>
+                                <div class="font-light">{{ vault.fee_per_month }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Debt Owned</h1>
-                                <div>{{ vault.debt_owned }}</div>
+                                <div class="font-light">{{ vault.debt_owned }}</div>
                             </div>
-                            <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
+                            <div class="border-b border-gray-300 sm:border-none px-4 py-4">
                                 <h1 class="font-bold">Date of Deposit</h1>
-                                <div>{{ vault.date_of_deposit }}</div>
+                                <div class="font-light">{{ vault.date_of_deposit }}</div>
                             </div>
                         </div>
 
-                        <div class="w-full sm:w-[40%]">
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                        <div class="w-full sm:w-[40%]" style="background-color: #AC9F89; color: black;">
+                            <div class="border-b border-gray-300 px-4 py-4 rounded-br-xl">
                                 <h1 class="font-bold">Status</h1>
-                                <div>{{ vault.status }}</div>
+                                <div class="font-light">{{ vault.status }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Last Payment Date</h1>
-                                <div>{{ vault.last_payment_date }}</div>
+                                <div class="font-light">{{ vault.last_payment_date }}</div>
                             </div>
-                            <div class="border-b border-gray-300 px-4 py-1.5">
+                            <div class="border-b border-gray-300 px-4 py-4">
                                 <h1 class="font-bold">Next Fee Due Date</h1>
-                                <div>{{ vault.next_fee_due_date }}</div>
+                                <div class="font-light">{{ vault.next_fee_due_date }}</div>
                             </div>
-                            <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
+                            <div class="border-b border-gray-300 sm:border-none px-4 py-4 rounded-br-xl">
                                 <h1 class="font-bold">Maturity Date</h1>
-                                <div>{{ vault.date_of_maturity }}</div>
+                                <div class="font-light">{{ vault.date_of_maturity }}</div>
                             </div>
                         </div>
                     </div>
 
-                    <section class="mb-12">
+                    <section class="mb-12 text-center text-sm">
                         <div>
                             <span>
-                                Copyright &copy; 2026 {{ profile.website_name }}. All rights reserved
+                                Copyright &copy; 2026 {{ profile.website_name }}s. All rights reserved
                             </span>
                         </div>
                     </section>
