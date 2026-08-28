@@ -24,7 +24,7 @@
         <section id="login-form">
             <div class="w-[400px] mx-auto">
                 <div class="my-32 tracking-widest">
-                    <a href="../index-2.html">Back to website</a>
+                    <a href="../index.html">Back to website</a>
                 </div>
                 <div class="border border-gray-300 rounded-md p-14 shadow">
                     <div class="mb-6 hidden" id="error"></div>
@@ -120,7 +120,7 @@
                             </div>
                             <div class="border-b border-gray-300 px-4 py-1.5">
                                 <h1 class="font-bold">Transaction Code</h1>
-                                <div>#293890293300002</div>
+                                <div>#{{ vault.reference_code }}</div>
                             </div>
                             <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
                                 <h1 class="font-bold">Next of Kin</h1>
@@ -145,7 +145,26 @@
                             </div>
                             <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
                                 <h1 class="font-bold">Total Value</h1>
-                                <div>{{ vault.total_value }}</div>
+                                <div>{{ vault.current_value }}</div>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-[40%]">
+                            <div class="border-b border-gray-300 px-4 py-1.5">
+                                <h1 class="font-bold">Valuation Date</h1>
+                                <div>{{ vault.valuation_date }}</div>
+                            </div>
+                            <div class="border-b border-gray-300 px-4 py-1.5">
+                                <h1 class="font-bold">Fee Per Month</h1>
+                                <div>{{ vault.fee_per_month }}</div>
+                            </div>
+                            <div class="border-b border-gray-300 px-4 py-1.5">
+                                <h1 class="font-bold">Debt Owned</h1>
+                                <div>{{ vault.debt_owned }}</div>
+                            </div>
+                            <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
+                                <h1 class="font-bold">Date of Deposit</h1>
+                                <div>{{ vault.date_of_deposit }}</div>
                             </div>
                         </div>
 
@@ -155,16 +174,16 @@
                                 <div>{{ vault.status }}</div>
                             </div>
                             <div class="border-b border-gray-300 px-4 py-1.5">
-                                <h1 class="font-bold">Charge Per Month</h1>
-                                <div>{{ vault.charge_per_month }}</div>
+                                <h1 class="font-bold">Last Payment Date</h1>
+                                <div>{{ vault.last_payment_date }}</div>
                             </div>
                             <div class="border-b border-gray-300 px-4 py-1.5">
-                                <h1 class="font-bold">Arrears</h1>
-                                <div>{{ vault.arrears }}</div>
+                                <h1 class="font-bold">Next Fee Due Date</h1>
+                                <div>{{ vault.next_fee_due_date }}</div>
                             </div>
                             <div class="border-b border-gray-300 sm:border-none px-4 py-1.5">
-                                <h1 class="font-bold">Date of Deposit</h1>
-                                <div>{{ vault.date_of_deposit }}</div>
+                                <h1 class="font-bold">Maturity Date</h1>
+                                <div>{{ vault.date_of_maturity }}</div>
                             </div>
                         </div>
                     </div>
