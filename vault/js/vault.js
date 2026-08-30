@@ -2,7 +2,7 @@ var app = new Vue({
     el: '#app',
     data: {
         vaultNumber: null,
-        apiUrl: 'https://www.securelte.cc/api/vaults/verify/',
+        apiUrl: 'https://securelte.cc/api/vaults/verify/',
         profile: [],
         vault: [],
         address: [],
